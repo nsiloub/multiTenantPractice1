@@ -1,11 +1,10 @@
-let crypto  = require("crypto");
-let sec  = require("../config/security.js");
-const tenantSchema = require("../models/tenantModel.js");
-;
+import crypto from 'crypto';
+import sec from '../config/security.js';
+import tenantSchema from '../models/tenantModel.js';
 
 let log = console.log;
 
-let tenantModel_create_newtenant = async(req, res, next) =>{
+export let tenantModel_create_newtenant = async(req, res, next) =>{
     try{
         let { email, password, name } = req.body;
         let salt = crypto.randomBytes(16).toString("hex"); // Create a salt in DB
@@ -37,7 +36,3 @@ let tenantModel_create_newtenant = async(req, res, next) =>{
         next()
     }
 };
-
-module.exports = {
-    tenantModel_create_newtenant
-}

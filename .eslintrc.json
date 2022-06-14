@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+      },          
+    "plugins": ["import"],
+    "rules": {
+      "import/no-unresolved": 2,
+      "import/no-commonjs": 2,
+      "import/extensions": [2, "ignorePackages"]
+    }  
+}

@@ -1,7 +1,7 @@
-let itemsSchema = require("../models/itemsModel.js");
+import itemsSchema from '../models/itemsModel.js';
 let log = console.log;
 
-let itemsModel_create_newItem = async(req, res, next) =>{
+export let itemsModel_create_newItem = async(req, res, next) =>{
     try{
         let { item_name, number_of_items } = req.body;
         let dbConnection = global.clientConnection;
@@ -18,9 +18,6 @@ let itemsModel_create_newItem = async(req, res, next) =>{
     } catch(err){
         log(err);
         res.status(500).send({message : "error while creating the item", err: err.message});
+        next()
     }
 };
-
-module.exports = {
-    itemsModel_create_newItem,
-}

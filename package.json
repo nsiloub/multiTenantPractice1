@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "A simple project to practice multi-tenancy. It was inspired by this post : https://medium.com/@rajamanii/connecting-multiple-database-in-nodejs-with-mongodb-and-mongoose-d88574fcd5a3",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./"
   },
   "keywords": [
     "multi-tenancy",
@@ -22,5 +24,9 @@
     "express": "^4.18.1",
     "mongoose": "^6.3.6",
     "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }

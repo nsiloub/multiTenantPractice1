@@ -1,10 +1,16 @@
-let express = require("express");;
-let bodyParser = require("body-parser");;
-let cors = require("cors");;
-let dotenv = require("dotenv");
+import express from 'express';
+// import bodyParser from 'body-parser';
+import cors from 'cors';
+import dotenv from 'dotenv';
 dotenv.config;
-let {initDbConnection} = require("./dbutil.js");
-let path = require("path");
+import { initDbConnection } from './dbutil.js';
+// import path from 'path';
+import rootRoute from './routes/rootRoute.js';
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 let log = console.log;
 
@@ -20,12 +26,12 @@ let PORT = process.env.PORT|| 5000;
 
 global.clientConnection = initDbConnection();
 
-global.appRoot = path.resolve(__dirname);
+// global.appRoot = path.resolve(__dirname);
 
-app.get("/", (req, res, next) => {
+app.get("/", (req, res, /*next*/) => {
     res.json("Welcome")
 });
-app.use(require("./routes/rootRoute.js"))
+app.use(rootRoute)
 
 let listener = app.listen(PORT, () =>{
     log(`The app is listening on port ${listener.address().port}, can be run at http://localhost:${listener.address().port}`)

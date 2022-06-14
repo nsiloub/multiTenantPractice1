@@ -1,9 +1,9 @@
-let express = require("express");
-let authRoute = require("./authRoute.js");
-const itemsRouter = require("./itemsRoutes.js");
+import express from 'express';
+import authRoute from './authRoute.js';
+import itemsRouter from './itemsRoutes.js';
 
 let rootRoute = express.Router();
 
 rootRoute.use("/", authRoute, itemsRouter)
 
-module.exports = rootRoute;
+export default rootRoute;

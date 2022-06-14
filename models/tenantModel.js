@@ -1,4 +1,4 @@
-let mongoose = require("mongoose");
+import mongoose from 'mongoose';
 let Schema = mongoose.Schema;
 
 
@@ -32,4 +32,4 @@ let tenantSchema = new Schema({
     },
     timestamps: true
 });
-module.exports = tenantSchema;
+export default tenantSchema;

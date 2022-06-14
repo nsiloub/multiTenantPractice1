@@ -1,5 +1,6 @@
-let mongoose = require("mongoose")
-let dotenv = require("dotenv")
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import tenantSchema from './models/tenantModel.js';
 dotenv.config();
 
 let log = console.log;
@@ -13,17 +14,14 @@ let clientOption = {
     autoIndex : false
 };
 
-let initDbConnection = () => {
+export let initDbConnection = () => {
     let db = mongoose.createConnection(process.env.MONGODB_URI, clientOption);
     
     db.on("error", (error) => log("Mongodb Connection Error>> : ", error));
     db.once("open", () => log("Client MongoDB connection ok!"));
     
-    // mongoose.model("Tenant", tenantSchema);
-    require("./models/tenantModel.js")
+    // require("./models/tenantModel.js");
+
+    tenantSchema;
     return db;
 };
-
-module.exports = {
-    initDbConnection,
-}
