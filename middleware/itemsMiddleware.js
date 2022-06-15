@@ -1,10 +1,12 @@
+import { dbInit } from '../dbutil.js';
 import itemsSchema from '../models/itemsModel.js';
 let log = console.log;
 
 export let itemsModel_create_newItem = async(req, res, next) =>{
     try{
         let { item_name, number_of_items } = req.body;
-        let dbConnection = global.clientConnection;
+        // let dbConnection = global.clientConnection;
+        let dbConnection = dbInit;
         let name = "Tenant2"; // The namle can dynamically be sent with tokens,... But just for testing i use the a name
         let db = await dbConnection.useDb(name, { useCache : true});
         let Tenant = db.model("item", itemsSchema);

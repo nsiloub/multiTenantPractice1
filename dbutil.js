@@ -25,3 +25,5 @@ export let initDbConnection = () => {
     tenantSchema;
     return db;
 };
+
+export let dbInit = initDbConnection()

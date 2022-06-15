@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import sec from '../config/security.js';
+import { dbInit } from '../dbutil.js';
 import tenantSchema from '../models/tenantModel.js';
 
 let log = console.log;
@@ -11,7 +12,8 @@ export let tenantModel_create_newtenant = async(req, res, next) =>{
         let hashedPwd = crypto.scryptSync(password, salt, sec.cryptoKeylen, { N : sec.cryptoIterationCost }).toString("hex");
 
         // Accessing the Cluster connection from global Object
-        let dbConnection = global.clientConnection;
+        // let dbConnection = global.clientConnection;
+        let dbConnection = dbInit;
         let db = await dbConnection.useDb(name, {useCache : true}/* USE_WHATEVER_YOU_USE_TO_IDENTIFY_YOUR_TENANT_BUT_MUST_BE_UNIQUE*/);
         let Tenant = await db.model("Tenant", tenantSchema);
 

@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config;
-import { initDbConnection } from './dbutil.js';
+// import { initDbConnection } from './dbutil.js';
 // import path from 'path';
 import rootRoute from './routes/rootRoute.js';
 // import { fileURLToPath } from 'url';
@@ -24,7 +24,7 @@ app.use(cors());
 let PORT = process.env.PORT|| 5000;
 
 
-global.clientConnection = initDbConnection();
+// global.clientConnection = initDbConnection();
 
 // global.appRoot = path.resolve(__dirname);
 
